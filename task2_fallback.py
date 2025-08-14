@@ -1,4 +1,3 @@
-# task2_fallback.py
 import os
 import io
 import sys
@@ -8,7 +7,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans, DBSCAN
 from sklearn.metrics import silhouette_score
 
-# If requests is available we'll use it to download raw CSVs
+
 try:
     import requests
 except ImportError:
@@ -52,9 +51,9 @@ def load_dataset(local_filename=FILENAME, urls=FALLBACK_URLS):
         "Or download from a trusted GitHub repo and update FALLBACK_URLS in this script."
     )
 
-# -------------------------
+
 # Main workflow
-# -------------------------
+
 try:
     df = load_dataset()
 except Exception as e:
@@ -131,3 +130,4 @@ plt.title("DBSCAN Clustering (noise = -1)")
 plt.show()
 
 print("DBSCAN unique clusters:", sorted(set(db_labels)))
+
